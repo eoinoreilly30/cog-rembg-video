@@ -50,5 +50,5 @@ class Predictor(BasePredictor):
         writer.release()
         output_path = "/tmp/output.mp4"
         # ffmpeg command to add codec libx264 to the video
-        subprocess.run(["ffmpeg", "-i", tmpname, "-c:v", "libx264", "-crf", "0", output_path], check=True)
+        subprocess.run(["ffmpeg", "-y", "-i", tmpname, "-c:v", "libx264", "-crf", "0", output_path], check=True)
         return Path(output_path)
